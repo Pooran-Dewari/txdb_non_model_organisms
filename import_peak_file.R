@@ -7,20 +7,23 @@ library(rtracklayer)
 # import narrowPeak files
 narrow_files <- list.files(pattern = "narrowPeak")
 
+names(narrow_files) <- narrow_files
+
 extraCols_narrowPeak <- c(signalValue = "numeric", pValue = "numeric",
                           qValue = "numeric", peak = "integer")
 
 narrowPeak1 <- import(narrow_files[[1]], format = "BED",
                         extraCols = extraCols_narrowPeak)
-                        
+
 narrowPeak1
 
 # import broadPeak files
 broad_files <- list.files(pattern = "broadPeak")
 
+names(broad_files) <- broad_files
+
 extraCols_broadPeak <- c(signalValue = "numeric", pValue = "numeric",
                          qValue = "numeric")
-                         
 broadPeak1 <- import(broad_files[[1]], format = "BED",
                            extraCols = extraCols_broadPeak)
 
